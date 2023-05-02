@@ -1,18 +1,30 @@
 import React from 'react';
-
-const Cart = () => {
+import './Cart.css'
+import { Link } from 'react-router-dom';
+const Cart = ({ card }) => {
+    const { chef_name, chef_photo, likes, num_recipes, years_of_experience } = card;
     return (
-        <div>
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img src="" alt="Album" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">New album is released!</h2>
-                    <p>Click the button to listen on Spotiwhy app.</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Listen</button>
-                    </div>
+        <div >
+            <div className="product card ">
+                <img className='image rounded-full ' src={chef_photo} alt="" />
+                <div className='product-info'>
+                    <h2 className='text-3xl font-semibold mt-2'> Chef Name:{chef_name}</h2>
+                    <h4 className='text-xl font-semibold mt-2'>Years Of Experience: {years_of_experience}</h4>
+                    <h3 className='text-xl font-semibold'>Number Of Recipe: {num_recipes}</h3>
+                    <h4 className='text-xl font-semibold '>Likes: {likes}</h4>
+                    <Link to='/details'><button className='btn-cart '>
+                        <span className="box">
+                            View recipe!
+                        </span>
+                    </button></Link>
                 </div>
             </div>
+            <svg className="filter">
+                <filter id="wavy2">
+                    <feTurbulence x="0" y="0" baseFrequency="0.0" numOctaves="2" seed="4"></feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" scale="20"></feDisplacementMap>
+                </filter>
+            </svg>
         </div>
     );
 };

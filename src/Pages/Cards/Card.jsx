@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 
 const Card = () => {
 
@@ -7,15 +8,17 @@ const Card = () => {
     useEffect(() => {
         fetch('http://localhost:5000/chefs')
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setCards(data))
         .catch(error => console.error(error))
     },[])
 
     return (
-        <div>
-            <h2>hellow {cards.length}</h2>
+        <div className='container mx-auto grid grid-cols-3 mt-6'>
+            
             {
-                
+                cards.map(card => <Cart key={card.id} card={card} ></Cart>
+               
+                )
             }
         </div>
     );
