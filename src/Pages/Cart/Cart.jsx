@@ -2,7 +2,7 @@ import React from 'react';
 import './Cart.css'
 import { Link } from 'react-router-dom';
 const Cart = ({ card }) => {
-    const { chef_name, chef_photo, likes, num_recipes, years_of_experience } = card;
+    const { chef_name, chef_photo, likes, num_recipes, years_of_experience, id } = card;
     return (
         <div >
             <div className="product card ">
@@ -12,7 +12,7 @@ const Cart = ({ card }) => {
                     <h4 className='text-xl font-semibold mt-2'>Years Of Experience: {years_of_experience}</h4>
                     <h3 className='text-xl font-semibold'>Number Of Recipe: {num_recipes}</h3>
                     <h4 className='text-xl font-semibold '>Likes: {likes}</h4>
-                    <Link to='/details'><button className='btn-cart '>
+                    <Link to={`/details/${id}`}><button className='btn-cart '>
                         <span className="box">
                             View recipe!
                         </span>

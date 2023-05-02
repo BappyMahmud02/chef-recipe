@@ -3,6 +3,9 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import Card from "../Pages/Cards/Card";
 import Cart from "../Pages/Cart/Cart";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import Viewdetails from "../Pages/Detals/Viewdetails";
 
 const router = createBrowserRouter([
     {
@@ -14,8 +17,22 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path:'register',
+                element:<Register></Register>
+            },
+            {
+                path:'login',
+                element:<Login></Login>
+            },
+
+            {
                 path:'details',
-                element:<Cart></Cart>
+                element:<Cart></Cart>,
+
+            },
+            {
+                path:'details/:id',
+                element:<Viewdetails></Viewdetails>
             }
         
             
