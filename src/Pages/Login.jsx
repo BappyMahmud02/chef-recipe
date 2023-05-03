@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import App from '../App';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/Authproviders';
 
 const Login = () => {
+
+    const {signIn} = useContext(AuthContext);
+
     const handleLogIn = event => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +15,14 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        signIn(email, password)
+        .then(result => {
+            const loggedUSer = result.user;
+            console.log(loggedUSer);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
