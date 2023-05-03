@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Viewdetails from "../Pages/Detals/Viewdetails";
 import Privateroute from "./Privateroute";
+import Blog from "../Pages/Home/Home/Shared/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login></Login>
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             },
 
             {

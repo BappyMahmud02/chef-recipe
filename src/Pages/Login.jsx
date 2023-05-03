@@ -3,6 +3,8 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import App from '../App';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Providers/Authproviders';
+import { FaBeer } from 'react-icons/fa';
+
 
 const Login = () => {
 
@@ -56,7 +58,7 @@ const Login = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
                 <div className="text-center ">
-                    <h1 className="text-5xl font-bold">Please Login now!</h1>
+                    <h1 className="text-5xl font-bold mb-6">Please Login now !</h1>
 
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -79,9 +81,9 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <div className='w-full flex gap-4'>
+                        <div className=' flex items-center gap-4'>
                             <button onClick={handleGoogleSignIn} className="btn btn-primary"> Google</button>
-                            <button onClick={handleGithubSignIn} className="btn btn-primary">Github</button>
+                            <button onClick={handleGithubSignIn} className="btn btn-primary"> Github</button>
 
                         </div>
                     </form>

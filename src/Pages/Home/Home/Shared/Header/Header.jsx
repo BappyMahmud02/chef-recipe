@@ -28,12 +28,8 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold">
                             <li><Link to='/'>Home</Link></li>
-                            <li tabIndex={0}>
-                                <a className="justify-between">
-                                    About
-                                </a>
-                            </li>
-                            <li><a>Blog</a></li>
+                            
+                            <li><Link to='/blog'>Blog</Link> </li>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost font-bold normal-case text-4xl">Best Eats</Link>
@@ -42,10 +38,8 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-2xl font-bold px-1">
                         <li><Link to='/'>Home</Link></li>
-                        <li tabIndex={0}>
-                            <a> About </a>
-                        </li>
-                        <li><a>Blog</a></li>
+                        
+                        <li><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
