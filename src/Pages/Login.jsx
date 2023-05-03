@@ -81,7 +81,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <div className=' flex items-center gap-4'>
+                        <div className=' flex justify-around items-center mt-4'>
                             <button onClick={handleGoogleSignIn} className="btn btn-primary"> Google</button>
                             <button onClick={handleGithubSignIn} className="btn btn-primary"> Github</button>
 
