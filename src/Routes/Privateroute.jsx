@@ -4,8 +4,11 @@ import { Navigate } from 'react-router-dom';
 
 const Privateroute = ({children}) => {
 
-    const {user} = useContext(AuthContext)
+    const {user, loading} = useContext(AuthContext)
 
+    if(loading){
+        return <div className="radial-progress" style={{"--value":70}}>70%</div>
+    }
     if(user) {
         return children;
     }

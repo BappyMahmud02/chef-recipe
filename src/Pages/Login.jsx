@@ -6,7 +6,7 @@ import { AuthContext } from '../Providers/Authproviders';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
     const handleLogIn = event => {
         event.preventDefault();
@@ -16,15 +16,42 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password)
-        .then(result => {
-            const loggedUSer = result.user;
-            console.log(loggedUSer);
-            form.reset();
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(result => {
+                const loggedUSer = result.user;
+                console.log(loggedUSer);
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
+
+    const handleGoogleSignIn = () => {
+        
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    const handleGithubSignIn = () => {
+        
+        signInWithGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    
+   
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
@@ -52,12 +79,18 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <div className='w-full flex gap-4'>
+                            <button onClick={handleGoogleSignIn} className="btn btn-primary"> Google</button>
+                            <button onClick={handleGithubSignIn} className="btn btn-primary">Github</button>
+
+                        </div>
                     </form>
                     <p className='mb-12 ms-8'>
                         <Link to='/register' className="label-text-alt link link-hover">
-                          new to Best Eats ? Please register
+                            new to Best Eats ? Please register
                         </Link>
                     </p>
+
                 </div>
             </div>
         </div>
