@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Login from '../../../../Login';
 import { Link } from 'react-router-dom';
 import Register from '../../../../Register';
+import { AuthContext } from '../../../../../Providers/Authproviders';
 
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {
+            
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
     return (
         <div className='container mx-auto'>
             <div className="navbar bg-base-100">
@@ -28,7 +41,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-2xl font-bold px-1">
-                    <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/'>Home</Link></li>
                         <li tabIndex={0}>
                             <a> About </a>
                         </li>
@@ -36,11 +49,18 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    
+
                     <Link to='/register' className=" ms-4"> <button className="btn btn-active">Register </button>
                     </Link>
                     <Link to='/login' className=" ms-4"> <button className="btn btn-active">Log In</button>
                     </Link>
+                    {
+                        user ? <>
+                        <span>{user.email}</span>
+                        <span><button onClick={handleLogOut} className="btn btn-xs">Sign out</button>
+                        </span>
+                        </> : <Link to='/login'>Log in</Link>
+                    }
                 </div>
             </div>
         </div>
