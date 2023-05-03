@@ -5,7 +5,9 @@ const Cart = ({ card }) => {
     const { chef_name, chef_photo, likes, num_recipes, years_of_experience, id } = card;
     return (
         <div >
+            
             <div className="product card ">
+                
                 <img className='image rounded-full ' src={chef_photo} alt="" />
                 <div className='product-info'>
                     <h2 className='text-3xl font-semibold mt-2'> Chef Name:{chef_name}</h2>

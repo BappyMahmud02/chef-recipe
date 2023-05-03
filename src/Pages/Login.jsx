@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import App from '../App';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/Authproviders';
 import { FaBeer } from 'react-icons/fa';
 
 
 const Login = () => {
+
+    // const navigate = useNavigate()
 
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
@@ -22,6 +24,7 @@ const Login = () => {
                 const loggedUSer = result.user;
                 console.log(loggedUSer);
                 form.reset();
+                
             })
             .catch(error => {
                 console.log(error);
@@ -51,6 +54,7 @@ const Login = () => {
             })
     }
 
+
     
    
 
@@ -61,7 +65,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold mb-6">Please Login now !</h1>
 
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
                     <form onSubmit={handleLogIn} className="card-body">
                         <div className="form-control">
                             <label className="label">

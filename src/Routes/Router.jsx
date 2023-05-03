@@ -5,14 +5,17 @@ import Card from "../Pages/Cards/Card";
 import Cart from "../Pages/Cart/Cart";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import Viewdetails from "../Pages/Detals/Viewdetails";
+
 import Privateroute from "./Privateroute";
 import Blog from "../Pages/Home/Home/Shared/Blog/Blog";
+import Details from "../Pages/Detals/Details";
+import Errorpage from "../Pages/Error/Errorpage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<Errorpage></Errorpage>,
         children: [
             {
                 path: '/',
@@ -27,8 +30,8 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path:'/blog',
-                element:<Blog></Blog>
+                path: '/blog',
+                element: <Blog></Blog>
             },
 
             {
@@ -38,8 +41,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                element: <Privateroute> <Viewdetails></Viewdetails></Privateroute>
-            }
+                element: <Privateroute> <Details></Details></Privateroute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+            },
 
 
 

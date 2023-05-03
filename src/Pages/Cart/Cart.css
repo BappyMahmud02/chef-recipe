@@ -1,6 +1,6 @@
 .card {
-    width:400px;
-    height: 520px;
+    width:450px;
+    height: 550px;
     display: flex;
     padding: 2em;
     box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
@@ -8,7 +8,9 @@
     filter: url(#wavy2);
   }
   .image{
-    height: 240px;
+    height: 250px;
+    width: 250px;
+    margin-left: 60px;
   }
   
   .card p {
@@ -29,8 +31,8 @@
     position:relative;
   }
   .btn-cart{
-    margin-left: 70px;
-    margin-bottom: 8px;
+    margin-left: 100px;
+    margin-bottom: 15px;
     position: absolute;
     bottom: 0;
   }
@@ -105,4 +107,5 @@
     outline: none;
     border: none;
     background: transparent;
+    
   }
