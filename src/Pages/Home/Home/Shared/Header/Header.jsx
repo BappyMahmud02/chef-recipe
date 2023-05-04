@@ -32,7 +32,7 @@ const Header = () => {
                             <li><Link to='/blog'>Blog</Link> </li>
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost font-bold normal-case text-4xl">Best Eats</Link>
+                    <Link to='/' className="btn btn-ghost font-bold normal-case text-2xl md:text-4xl  ">Best Eats</Link>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -63,10 +63,11 @@ const Header = () => {
 
                             <span><button onClick={handleLogOut} className="btn btn-active ms-4">Log out</button>
                             </span>
-                        </> : <>  <div>
+                        </> : <>  <div className='flex'>
                             <Link to='/register' className=" ms-4"> <button className="btn btn-active">Register </button>
                             </Link>
-                            <Link to='/login'><button className='btn btn-primary'>Log in</button></Link></div> </>
+                            <Link to='/login'><button className='btn btn-primary ms-4'>Log in</button></Link>
+                            </div> </>
                     }
                 </div>
             </div>
