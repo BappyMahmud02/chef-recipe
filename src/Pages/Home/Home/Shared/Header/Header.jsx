@@ -11,12 +11,12 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {
-            
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div className='container mx-auto'>
@@ -28,7 +28,7 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold">
                             <li><Link to='/'>Home</Link></li>
-                            
+
                             <li><Link to='/blog'>Blog</Link> </li>
                         </ul>
                     </div>
@@ -38,22 +38,35 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-2xl font-bold px-1">
                         <li><Link to='/'>Home</Link></li>
-                        
+
                         <li><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {
+                        user &&
+                        <>
+                            <div className="tooltip tooltip-left"
+                                data-tip={user?.displayName}>
+                                <img className='h-[40px] w-[40px] rounded-full' src={user?.photoURL} alt="" />
+                            </div>
+                        </>
 
-                    <Link to='/register' className=" ms-4"> <button className="btn btn-active">Register </button>
-                    </Link>
-                    <Link to='/login' className=" ms-4"> <button className="btn btn-active">Log In</button>
-                    </Link>
+
+
+                    }
+
+                    {/* <Link to='/login' className=" ms-4"> <button className="btn btn-active">Log In</button>
+                    </Link> */}
                     {
                         user ? <>
-                        <span>{user.email}</span>
-                        <span><button onClick={handleLogOut} className="btn btn-xs">Sign out</button>
-                        </span>
-                        </> : <Link to='/login'>Log in</Link>
+
+                            <span><button onClick={handleLogOut} className="btn btn-active ms-4">Log out</button>
+                            </span>
+                        </> : <>  <div>
+                            <Link to='/register' className=" ms-4"> <button className="btn btn-active">Register </button>
+                            </Link>
+                            <Link to='/login'><button className='btn btn-primary'>Log in</button></Link></div> </>
                     }
                 </div>
             </div>

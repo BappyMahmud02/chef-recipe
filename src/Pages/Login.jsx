@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import App from '../App';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/Authproviders';
 import { FaBeer } from 'react-icons/fa';
 
 
 const Login = () => {
 
-    // const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+    
+
 
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
@@ -19,12 +23,15 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        
+
         signIn(email, password)
             .then(result => {
                 const loggedUSer = result.user;
                 console.log(loggedUSer);
                 form.reset();
-                
+                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.log(error);
@@ -37,6 +44,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -48,17 +56,14 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
-
-    
-   
-
-    return (
+     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col ">
                 <div className="text-center ">
