@@ -61,12 +61,12 @@ const Header = () => {
                     {
                         user ? <>
 
-                            <span><button onClick={handleLogOut} className="btn btn-active ms-4">Log out</button>
+                            <span><button onClick={handleLogOut} className="btn btn-success ms-4">Log out</button>
                             </span>
                         </> : <>  <div className='flex'>
-                            <Link to='/register' className=" ms-4"> <button className="btn btn-active">Register </button>
+                            <Link to='/register' className=" ms-4"> <button className="btn btn-success">Register </button>
                             </Link>
-                            <Link to='/login'><button className='btn btn-primary ms-4'>Log in</button></Link>
+                            <Link to='/login'><button className='btn btn-success ms-4'>Log in</button></Link>
                             </div> </>
                     }
                 </div>
