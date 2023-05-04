@@ -1,5 +1,5 @@
 .card {
-    width:450px;
+    /* width:450px; */
     height: 550px;
     display: flex;
     padding: 2em;
@@ -10,7 +10,7 @@
   .image{
     height: 250px;
     width: 250px;
-    margin-left: 60px;
+    margin: auto;
   }
   
   .card p {
@@ -51,6 +51,7 @@
     padding: 15px;
     text-align: center;
     margin: 0 5px;
+    
     background: transparent;
     text-transform: uppercase;
     font-weight: 900;

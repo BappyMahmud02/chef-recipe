@@ -13,9 +13,9 @@ const Cart = ({ card }) => {
                     <h2 className='text-3xl font-semibold mt-2'> Chef Name:{chef_name}</h2>
                     <h4 className='text-xl font-semibold mt-2'>Years Of Experience: {years_of_experience}</h4>
                     <h3 className='text-xl font-semibold'>Number Of Recipe: {num_recipes}</h3>
-                    <h4 className='text-xl font-semibold '>Likes: {likes}</h4>
+                    <h4 className='text-xl font-semibold '>Likes: {likes}</h4> <br /> <br />
                     <Link to={`/details/${id}`}><button className='btn-cart '>
-                        <span className="box">
+                        <span className="box ">
                             View recipe!
                         </span>
                     </button></Link>
