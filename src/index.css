@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    @apply text-red-600
+}
+.default{
+    @apply text-black
+}
