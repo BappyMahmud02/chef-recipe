@@ -32,11 +32,11 @@ const Header = () => {
                             <li><Link to='/blog'>Blog</Link> </li>
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost font-bold normal-case text-2xl md:text-4xl  ">Best Eats</Link>
+                    <Link to='/' className="btn btn-ghost font-bold normal-case text-2xl md:text-4xl text-emerald-400 "> <span className='text-green-700	'>Best</span> Eats</Link>
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal text-2xl font-bold px-1">
+                    <ul className="menu menu-horizontal text-2xl font-bold px-1 ">
                         <li><Link to='/'>Home</Link></li>
 
                         <li><Link to='/blog'>Blog</Link></li>

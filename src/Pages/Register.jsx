@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/Authproviders';
+import { updateProfile, getAuth } from 'firebase/auth';
+import app from '../firebase/firebase.config';
+
 
 const Register = () => {
-
+    const auth = getAuth(app);
     const { user, createUser, logOut } = useContext(AuthContext)
-    
+
     const navigate = useNavigate()
 
     const handleRegister = event => {
@@ -14,6 +17,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value
         console.log(name, email, password);
 
         createUser(email, password)
@@ -21,9 +25,20 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
-                logOut();
-                navigate('/login')
-                
+
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => {
+                        console.log("profile updated");
+                        logOut();
+                        navigate('/login')
+                    })
+                    .catch((error) => {
+                        console.log(error.message);
+                    });
+
             })
             .catch(error => {
                 console.log(error);
@@ -46,6 +61,12 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Photo Url</span>
+                            </label>
+                            <input type="text" name='photo' placeholder="photo url" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" required />
@@ -60,8 +81,8 @@ const Register = () => {
                                 <Link to='/login' className="label-text-alt link link-hover">Already have an account?</Link>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register Now</button>
+                        <div className="form-control my-r">
+                            <button className="btn btn-primary ">Register Now</button>
                         </div>
                     </form>
                 </div>
