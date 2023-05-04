@@ -9,7 +9,7 @@ const Details = () => {
     const { chef_name, chef_photo, likes, num_recipes, years_of_experience, id, ingredients,short_bio, cooking_method } = details
 
     return (
-        <div className='container mx-auto flex my-12 gap-8'>
+        <div className='container mx-auto flex flex-cols my-12 gap-8'>
 
             <img className='images' src={chef_photo} alt="" />
 
