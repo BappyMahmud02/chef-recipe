@@ -6,7 +6,7 @@ const Card = () => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://chef-recipe-bappymahmud02.vercel.app/chefs')
         .then(res => res.json())
         .then(data => setCards(data))
         .catch(error => console.error(error))
